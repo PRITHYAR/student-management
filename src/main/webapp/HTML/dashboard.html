@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Dashboard</title>
+<link rel="stylesheet" href="../css/dashboard.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="../img/icon.jpg" type="image/jpeg">
+<link rel="shortcut icon" href="..img/icon.jpg" type="image/jpeg">
+</head>
+<body>
+<div class="main-div">
+  <!-- Welcome Message -->
+  <h2 class="welcome" id="welcomeMessage">Welcome</h2>
+  
+  <script>
+    window.onload=function(){
+    const params = new URLSearchParams(window.location.search);
+    const username = params.get("username");
+    const welcomeEl = document.getElementById("welcomeMessage");
+    if (username) {
+      welcomeEl.textContent += " " + username;
+      const hiddenInput = document.querySelector('input[name="name"]');
+      if (hiddenInput) hiddenInput.value = username;
+    } else {
+      welcomeEl.textContent += " Guest";
+    }
+    }
+  </script>
+
+
+  <header class="top-nav">
+    <nav class="menu">
+      <div class="nav-left">
+        <a href="#"><img src="../img/plane.png" width="20" height="20" alt="Logo"></a>
+        <a href="#">Home</a>
+        <a href="#" class="active">Courses</a>
+        <a href="#">People</a>
+        <a href="#">Analytics</a>
+      </div>
+      <div class="nav-right">
+        <img src="../img/bell.png" alt="Notifications" width="24" height="24">
+        <img src="../img/profile.png" alt="Profile" width="32" height="32" class="avatar">
+        <a href="../HTML/login.html" class="logout-link">LOGOUT</a>
+        <form action="../DeleteServelet" method="get" onsubmit="return confirm('Are you sure you want to delete your account?');" class="delete-form">
+          <input type="hidden" name="name" value="" />
+          <input type="submit" value="Delete Account" class="delete-btn" />
+        </form>
+      </div>
+    </nav>
+  </header>
+
+
+  <main class="container">
+    <h1>Courses</h1>
+    <div class="filters">
+      <div class="tabs">
+        <button class="active">All</button>
+        <button>Published</button>
+        <button>Draft</button>
+        <button>Archived</button>
+      </div>
+      <div class="sort">
+        <button>Recency</button>
+        <button class="active">Alphabetically</button>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <img src="../img/javacourse.jpg" alt="Java Course">
+        <div class="card-body">
+          <p class="category">Adventure Sports</p>
+          <h2 class="title">Fear Of Driving And Automatic Negative Thoughts</h2>
+          <div class="meta">
+            <span>12 Lessons</span>
+            <span>3 hr 30 min</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../img/pythoncourse.jpg" alt="Python Course">
+        <div class="card-body">
+          <p class="category">Sales and Operations</p>
+          <h2 class="title">Work more, Earn more while sitting at your home</h2>
+          <div class="meta">
+            <span>23 Lessons</span>
+            <span>1 hr 30 min</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../img/fullstackcourse.jpg" alt="Fullstack Course">
+        <div class="card-body">
+          <p class="category">Marketing <span class="new">New</span></p>
+          <h2 class="title">Foundation course to understand about Software</h2>
+          <div class="meta">
+            <span>23 Lessons</span>
+            <span>1 hr 30 min</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
+
+ 

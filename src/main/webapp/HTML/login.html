@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Loginup</title>
+
+<link rel="stylesheet" href="../css/login.css">
+<link rel="icon" href="../img/icon.jpg" type="image/jpeg">
+<link rel="shortcut icon" href="..img/icon.jpg" type="image/jpeg">
+</head>
+<body>
+  <div class="main-div">
+   
+  <div class="right-panel">
+ <div class="left-panel">
+    <img src="../img/image.png" width=300 height=300>
+  </div>  
+  <div class="content-div">
+  
+  <form action="../LoginServelet" method="get" class="form-div">
+  <div class="heading">
+    <h1>Login</h1>
+    <h4>Unlock your world</h4>
+  </div>
+  <label>Username:</label><br>
+  <input type="text" placeholder="Enter your username" name="name" required><br>
+  
+  <label>Password:</label><br>
+  <input type="password" placeholder="Enter your password" name="password" required ><br>
+  <input type="submit" value="Sumbit" >
+  <div id="error-msg" style="color:red;"></div>
+  <script>
+    const params=new URLSearchParams(window.location.search);
+    const error=params.get("error1");
+    if(error==="invalidusername"){
+    	document.getElementById("error-msg").textContent="Invalid username";
+    }
+  </script>
+  <p>Don't have an account?<a href="../HTML/signup.html">Signup</a></p>
+  </form>
+  </div>
+  </div>
+  </div>
+</body>
+</html>
