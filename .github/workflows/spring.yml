@@ -1,25 +1,10 @@
-name: Spring 
-on:
-  push:
-    branches: ["master"]
-  pull_request:
-    branches: ["master"]
-jobs:
-  build:
-    run-on: windows-latest
-    steps:
-      - name: checkout source
-        uses: action.checkout@v3
-        
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-           java-version: '17'
-           distribution: 'temurin'
-           
-      - name: Build with Maven
-        run: mvn clean install
+name: Tset Workflow
 
-      - name: Run Tests
-        run: mvn test
-      
+on: [push]
+
+jobs:
+  hello-jobs:
+    runs-on: windows-latest
+    steps:
+      - name: Say Hello
+        run: echo "Hello from Github Actions !"
